@@ -1,0 +1,33 @@
+CASO 
+
+Uno de los productos que ofrece B89 es el pago de remesas. El flujo de una remesa se puede separar en 4 pasos principales: 
+
+A través de un API, el merchant (cliente B2B) envía las remesas para que B89 procese. Estas tienen la siguiente información: 
+
+Id de la remesa para el merchant 
+
+Monto y Moneda de la remesa 
+
+Datos del remitente (Tipo y Número de documento, Nombres, Email y Teléfono) 
+
+Datos del beneficiario (Tipo y Número de documento, Nombres, Email y Teléfono) 
+
+Cuenta bancaria destino (del beneficiario) 
+
+Internamente, se validan los datos del remitente y beneficiario para asegurarnos que no se encuentren en listas negras. Para ello se envían los datos de la persona a un proveedor que hará la validación. 
+
+Se envían los datos de la remesa al proveedor que se encarga de hacer el pago al beneficiario 
+
+Si no hubiera algún problema en los pasos anteriores, se confirma al merchant que sus remesas fueron entregadas. 
+
+Se necesita diseñar las tablas donde se almacenará dicha información tomando en cuenta que: 
+
+Se necesita saber, en todo momento, en que paso se encuentra la remesa 
+
+Necesitamos generar reportes de: 
+
+Montos enviados correctamente por Merchant mensualmente 
+
+Montos enviados por remitente mensualmente 
+
+Montos recibidos por beneficiario mensualmente
