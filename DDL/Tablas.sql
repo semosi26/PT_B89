@@ -45,8 +45,7 @@ CREATE TABLE Remesa (
     FOREIGN KEY (MerchantID) REFERENCES Merchant(MerchantID),
     FOREIGN KEY (RemitenteID) REFERENCES Remitente(RemitenteID),
     FOREIGN KEY (BeneficiarioID) REFERENCES Beneficiario(BeneficiarioID),
-    FOREIGN KEY (ProveedorID) REFERENCES Proveedor(ProveedorID),
-
+    FOREIGN KEY (ProveedorID) REFERENCES Proveedor(ProveedorID)
 );
 
 CREATE TABLE Proveedor (
