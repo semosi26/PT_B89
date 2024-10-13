@@ -2,10 +2,10 @@
 -- una vista que muestre la informacion 
 -- de los 10 clientes que recibieron mas remesas el ultimo mes
 
-CREATE VIEW Top10Beneficiarios
-AS
-SELECT TOP 10 BeneficiarioID, COUNT(*) AS CantidadRemesas
+CREATE VIEW ClientesTopRemesas AS
+SELECT BeneficiarioID, COUNT(RemesaID) AS CantidadRemesas
 FROM Remesa
-WHERE FechaModificacion > DATEADD(MONTH, -1, GETDATE())
+WHERE Estado = 'Entregado' AND FechaCreacion >= DATEADD(MONTH, -1, GETDATE())
 GROUP BY BeneficiarioID
-ORDER BY CantidadRemesas DESC;
+ORDER BY CantidadRemesas DESC
+OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY;

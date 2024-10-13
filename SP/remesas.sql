@@ -10,11 +10,13 @@ CREATE PROCEDURE IngresarRemesa
     @MerchantID int,
     @RemitenteID int,
     @BeneficiarioID int,
+    @ProveedorID int,
     @Monto decimal(18,2),
     @Moneda varchar(10),
-    @Estado varchar(50)
+    @Estado varchar(50),
+    @ResultadoValidacion varchar(200),
 AS
 BEGIN
-    INSERT INTO Remesa (MerchantID,RemitenteID,BeneficiarioID,Moneda,Estado)
-    VALUES (@MerchantID, @RemitenteID, @BeneficiarioID, @Monto, @Moneda, @Estado);
+    INSERT INTO Remesa (MerchantID,RemitenteID,BeneficiarioID,ProveedorID,Moneda,Estado,ResultadoValidacion)
+    VALUES (@MerchantID, @RemitenteID, @BeneficiarioID,@ProveedorID, @Monto, @Moneda, @Estado, @ResultadoValidacion);
 END;

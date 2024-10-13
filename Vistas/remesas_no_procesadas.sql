@@ -6,5 +6,5 @@ CREATE VIEW RemesasNoProcesadasMes
 AS
 SELECT MerchantID, COUNT(*) AS CantidadNoProcesadas
 FROM Remesa
-WHERE Estado <> 'Entregada' AND FechaModificacion > DATEADD(MONTH, -1, GETDATE())
+WHERE ResultadoValidacion <> 'No Validado' AND FechaModificacion > DATEADD(MONTH, -1, GETDATE())
 GROUP BY MerchantID;
