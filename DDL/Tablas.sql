@@ -16,6 +16,7 @@ CREATE TABLE Remitente (
     Email varchar(200),
     Telefono varchar(50)
 );
+-- Creacion de la tabla beneficiario
 
 CREATE TABLE Beneficiario (
     BeneficiarioID int primary key,
@@ -33,14 +34,19 @@ CREATE TABLE Remesa (
     MerchantID int,
     RemitenteID int,
     BeneficiarioID int,
+    ProveedorID int,
     Monto decimal(18,2),
     Moneda varchar(10),
     Estado varchar(50), -- PARA SABER EN QUE ETAPA DEL PROCESO NOS ENCONTRAMOS
+    EstadoValidacion varchar(500),
+    ResultadoValidacion varchar(200),
     FechaCreacion DATETIME DEFAULT GETDATE(),
     FechaModificacion DATETIME,
     FOREIGN KEY (MerchantID) REFERENCES Merchant(MerchantID),
     FOREIGN KEY (RemitenteID) REFERENCES Remitente(RemitenteID),
     FOREIGN KEY (BeneficiarioID) REFERENCES Beneficiario(BeneficiarioID),
+    FOREIGN KEY (ProveedorID) REFERENCES Proveedor(ProveedorID),
+
 );
 
 CREATE TABLE Proveedor (
